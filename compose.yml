@@ -10,10 +10,10 @@ services:
     build: .
 
     # Uses the image named "customer-feedback-system" and tagged "1.0"
-    image: whiskr:1.0
+    image: whiskr_app:1.0
 
     # The container's name
-    container_name: whiskr_app
+    container_name: whiskr
 
     # The port the app will be accessible on
     ports:
