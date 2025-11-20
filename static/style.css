@@ -1,24 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-	background-color: #1F2544;
-	font-family: Nunito Sans, sans-serif;
-	max-width: 1170 px;
-	max-height: 2532 px;
+    margin: 0;
+    background-color: #1F2544;
+    font-family: Nunito Sans, sans-serif;
+    overflow-x: hidden;
 }
 
 .wrapperMain {
-	padding: 100px 0;
-	margin: 0 auto;
-	width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+	gap: 20px;
 }
 
 h1 {
-	margin-top: 50%;
-	color:aliceblue;
-	text-align: center;
-	font-size: 7rem;
+    color: aliceblue;
+    font-size: 3rem;
+    margin: 0;
 }
 
 .menuCat img {
-	text-align: center;
-	transform: scale(0.4);
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+.menuBtns {
+	margin-top: 5%;
+	border-radius: 10px;
+	padding: 8px 16px;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	gap: 10px;
+}
+
+.startBtn, .loginBtn {
+	border: none;
+	color:#1F2544;
+	padding: 10px 20px;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+@media (max-width: 360px) {
+    body {
+        font-size: 14px;
+    }
+    .container {
+        padding: 10px;
+    }
 }
