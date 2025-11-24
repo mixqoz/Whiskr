@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --control-text-color: rgb(82, 82, 82);
+}
+
 body {
     margin: 0;
     font-family: Nunito Sans, sans-serif;
@@ -57,6 +61,7 @@ form input {
     padding: 1em;
     border-radius: 0 5px 5px 0;
     border: none;
+    color: var(--control-text-color);
 }
 
 form input:focus {
@@ -72,6 +77,7 @@ form button {
     text-transform: uppercase;
     cursor: pointer;
     transition: 150ms ease-in-out;
+    color: var(--control-text-color);
 }
 
 form button:hover {
