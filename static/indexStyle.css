@@ -44,7 +44,7 @@ h1 {
 	gap: 10px;
 }
 
-.startBtn, .loginBtn {
+#startBtn, #loginBtn {
 	border: none;
 	color:#1F2544;
 	padding: 10px 20px;
