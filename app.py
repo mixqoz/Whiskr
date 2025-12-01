@@ -1,9 +1,17 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import json
 
 app = Flask(__name__)
 
 file = 'data.json'
+
+try:
+    with open(file, "r") as f:
+        feedback = json.load(f)
+except:
+    feedback = []
+    with open(file, "w") as f:
+        json.dump(feedback, f)
 
 try:
     with open(file, "r") as f:
@@ -21,13 +29,45 @@ def index():
 def home():
     return render_template('home.html')
 
+@app.route('/signup', methods=['GET','POST'])
+def signup():
+    if request.method == 'POST':
+        # Get form data
+        firstname = request.form.get('firstname')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        repeat_password = request.form.get('repeat-password')
+
+        # Optional: simple validation
+        if password != repeat_password:
+            return render_template('signup.html', error="Passwords do not match!")
+
+        # Save data to JSON
+        feedback.append({"firstname": firstname, "email": email, "password": password})
+        with open(file, "w") as f:
+            json.dump(feedback, f)
+
+        return redirect(url_for('home'))
+
+    return render_template('signup.html')
+
+
 @app.route('/login', methods=['GET','POST'])
 def login():
-    return render_template('login.html')
+    error = None
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
 
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
+        # Simple login check
+        user = next((u for u in feedback if u["email"] == email and u["password"] == password), None)
+        if user:
+            return redirect(url_for('home'))
+        else:
+            error = "Invalid email or password"
+
+    # Always return a response (for GET and for POST errors)
+    return render_template('login.html', error=error)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
