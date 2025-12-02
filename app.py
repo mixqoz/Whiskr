@@ -21,6 +21,8 @@ except:
     with open(file, "w") as f:
         json.dump(feedback, f)
         
+
+        
 @app.route('/')
 def index():
 	return render_template('index.html')
@@ -38,7 +40,6 @@ def signup():
         password = request.form.get('password')
         repeat_password = request.form.get('repeat-password')
 
-        # Optional: simple validation
         if password != repeat_password:
             return render_template('signup.html', error="Passwords do not match!")
 
@@ -66,7 +67,6 @@ def login():
         else:
             error = "Invalid email or password"
 
-    # Always return a response (for GET and for POST errors)
     return render_template('login.html', error=error)
 
 if __name__ == "__main__":
