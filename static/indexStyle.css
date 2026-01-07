@@ -2,6 +2,51 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Nunito Sans, sans-serif;
+    background-color: #1F2544;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapperMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+    min-height: 100vh;
+    width: 100%;
+    color: aliceblue;
+}
+
+.menuCat img {
+    max-width: 260px;
+    height: auto;
+}
+
+.menuBtns {
+    display: flex;
+    gap: 12px;
+}
+
+.menuBtns button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+}
+* {
+    box-sizing: border-box;
+}
+
 html {
     margin: 0;
     overflow: hidden;
