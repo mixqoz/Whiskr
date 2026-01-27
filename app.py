@@ -71,8 +71,12 @@ def home():
     return render_template('home.html')
 
 @app.route('/questions')
-def messages():
+def questions():
     return render_template('questions.html')
+
+@app.route('/games')
+def games():
+    return render_template('games.html')
 
 @app.route('/profile')
 def profile():
