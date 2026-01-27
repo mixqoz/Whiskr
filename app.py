@@ -70,9 +70,9 @@ def login():
 def home():
     return render_template('home.html')
 
-@app.route('/messages')
+@app.route('/questions')
 def messages():
-    return render_template('messages.html')
+    return render_template('questions.html')
 
 @app.route('/profile')
 def profile():
