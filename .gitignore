@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+.eggs/
+venv/
+ENV/
+env/
+.venv/
+
+# Flask instance folder (if used)
+instance/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+
+# Dependencies
+poetry.lock
+Pipfile.lock
+
+# Environment variables and secrets
+.env
+.env.*
+*.key
+*.pem
+*.crt
+credentials.json
+
+# Data files - avoid committing user data
+data.json
+userdata.json
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+
+# Build artifacts
+build/
+dist/
+*.egg
+
+# Optional: ignore Fly and CI secrets
+fly.toml
+.github/workflows/**/secrets*
