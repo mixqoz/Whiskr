@@ -1,8 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 import logging
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 app = Flask(__name__)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+
+db = SQLAlchemy(app)
 
 file = 'data.json'
 
@@ -23,7 +30,21 @@ except:
     with open(file, "w") as f:
         json.dump(feedback, f)
 
-        
+TZ = ZoneInfo("Europe/Oslo")
+
+def nowNorway():
+    return datetime.now(TZ)
+
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(150), nullable=False, unique=True)
+    dateAdded = db.Column(db.DateTime(timezone=True), nullable=False, default=nowNorway)
+
+    def __repr__(self):
+        return '<Name %r>' % self.name
+
+
 @app.route('/')
 def index():
 	return render_template('index.html')
