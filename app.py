@@ -13,15 +13,6 @@ except:
     with open(file, "w") as f:
         json.dump(feedback, f)
 
-try:
-    with open(file, "r") as f:
-        feedback = json.load(f)
-except:
-    feedback = []
-    with open(file, "w") as f:
-        json.dump(feedback, f)
-        
-
         
 @app.route('/')
 def index():
