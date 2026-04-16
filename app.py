@@ -1,9 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
+import logging
 
 app = Flask(__name__)
 
 file = 'data.json'
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="app.log",
+    filemode="w",  # "w" = overskriv, "a" = legg til
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+
+logger = logging.getLogger(__name__)
 
 try:
     with open(file, "r") as f:
