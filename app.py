@@ -16,7 +16,7 @@ file = 'data.json'
 logging.basicConfig(
     level=logging.DEBUG,
     filename="app.log",
-    filemode="w",  # "w" = overskriv, "a" = legg til
+    filemode="w",
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
@@ -92,4 +92,6 @@ def login():
     return render_template('login.html', error=error)
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     app.run(debug=True, host="0.0.0.0", port=5000)

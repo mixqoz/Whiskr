@@ -16,10 +16,5 @@ services:
     ports:
       - "7724:5000"
 
-    # Mounts the current directory and feedback.json file to the container
-    volumes:
-      - .:/app
-      - ./userdata.json:/app/userdata.json
-
     # Makes sure the container remains online unless stopped manually
     restart: unless-stopped
